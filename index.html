@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Boot-files/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="Boot-files/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <title>Clock</title>
+    <!-- <script>
+        let a, time, date;
+        setInterval(() => {
+            a = new Date();
+            date = a.toLocaleDateString();
+            time = a.getHours() + " : " + a.getMinutes() + " : " + a.getSeconds();
+            document.getElementById('time').innerHTML = time + " ON " + date;
+        },1000);
+    </script> -->
+</head>
+
+<body style="background-color: #1d1e20;">
+    <nav class="site-header sticky-top py-1">
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+          <a class="py-2" href="clock.html" aria-label="Product">
+            <img src="imgs/clock.svg" width="35" height="35" alt="ClockIMg">
+          </a>
+          <a class="py-2 d-none d-md-inline-block" href="clock.html">Home</a>
+          <a class="py-2 d-none d-md-inline-block" href="https://github.com/yashwaghadhare" target="_blank">Git</a>
+          <a class="py-2 d-none d-md-inline-block" href="https://www.instagram.com/_yashh.21" target="_blank">Contact</a>
+          <a class="py-2 d-none d-md-inline-block" href="https://drive.google.com/file/d/1gx67vtHWntCJtMPa3YdRgfVxMWaci0r6/view?usp=sharing" target="_blank">Resume</a>
+          <a class="py-2 d-none d-md-inline-block" href="https://yashwaghadhare.github.io/Personal_portfolio/" target="_blank">Portfolio</a>
+        </div>
+      </nav>
+
+    <div class="container" style="margin-top: 10%;">
+        <center>
+            <div class="card">
+                <h2>Current Date-Time : </h2>
+                <h2><span id="time">Loading..😁</span> </h2>                
+            </div>
+        </center>
+    </div>
+    
+</body>
+</html>
