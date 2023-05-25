@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="Boot-files/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
+
     <title>Clock</title>
 </head>
 
@@ -49,8 +50,9 @@
         </div>
     </section>
 
+
     <section class="section2">
-        <div class="container" style="margin-top: 3%; margin-bottom: 200px;">
+        <div class="container" style="margin-top: 3%; margin-bottom: 20px;">
             <center>
                 <div class="card">
                     <h2>Current Date-Time : </h2>
@@ -59,5 +61,153 @@
             </center>
         </div>
     </section>
+
+    <script>
+
+    </script>
+
+
+    <section class="section3">
+        <div class="container" style="margin-top: 1%; margin-bottom: 20px; color: white;">
+            <center>
+                <div class="Stopwatch">
+                    <span class="text">StopWatch</span>
+                </div>
+            </center>
+        </div>
+    </section>
+
+
+    <section class="section4">
+        <div class="container" style="margin-bottom: 200px; color: white; font-size: 50px;">
+            <center>
+                <div class="cardSW">
+                    <div class="timer" style="padding-top: 25px;">
+                        <span class="digit" id="hr">00</span>
+                        <span class="txt" style="font-size: 20px;">Hr</span>
+
+                        <span class="digit" id="min">00</span>
+                        <span class="txt" style="font-size: 20px;">Min</span>
+
+                        <span class="digit" id="sec">00</span>
+                        <span class="txt" style="font-size: 20px;">Sec</span>
+
+                        <span class="digit" id="count">00</span>
+                        <span class="txt" style="font-size: 20px;">Counter</span>
+
+                    </div>
+
+                    <div class="buttons" style="margin-top: 40px;">
+                        <div class="container">
+                            <div class="toggle" id="start">
+
+                                <input type="checkbox">
+                                <span class="button"></span>
+                                <span class="label" style="font-size: 20px; color: rgb(11, 234, 15);">Start</span>
+                            </div>
+
+                            <div class="toggle" id="stop">
+                                <input type="checkbox">
+                                <span class="button"></span>
+                                <span class="label" style="font-size: 20px; color: rgb(242, 255, 0);">Stop</span>
+                            </div>
+
+                            <div class="toggle" id="reset">
+                                <input type="checkbox">
+                                <span class="button"></span>
+                                <span class="label"
+                                    style="font-size: 20px; color: rgba(0, 255, 238, 0.703);">Reset</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </center>
+        </div>
+    </section>
+
+    <script>
+        let startBtn = document.getElementById('start');
+        let stopBtn = document.getElementById('stop');
+        let resetBtn = document.getElementById('reset');
+
+        let hour = 00;
+        let minute = 00;
+        let second = 00;
+        let count = 00;
+
+        startBtn.addEventListener('click', function () {
+            timer = true;
+            stopWatch();
+        });
+
+        stopBtn.addEventListener('click', function () {
+            timer = false;
+        });
+
+        resetBtn.addEventListener('click', function () {
+            timer = false;
+            hour = 0;
+            minute = 0;
+            second = 0;
+            count = 0;
+            document.getElementById('hr').innerHTML = "00";
+            document.getElementById('min').innerHTML = "00";
+            document.getElementById('sec').innerHTML = "00";
+            document.getElementById('count').innerHTML = "00";
+        });
+
+        function stopWatch() {
+            if (timer) {
+                count++;
+
+                if (count == 100) {
+                    second++;
+                    count = 0;
+                }
+
+                if (second == 60) {
+                    minute++;
+                    second = 0;
+                }
+
+                if (minute == 60) {
+                    hour++;
+                    minute = 0;
+                    second = 0;
+                }
+
+                let hrString = hour;
+                let minString = minute;
+                let secString = second;
+                let countString = count;
+
+                if (hour < 10) {
+                    hrString = "0" + hrString;
+                }
+
+                if (minute < 10) {
+                    minString = "0" + minString;
+                }
+
+                if (second < 10) {
+                    secString = "0" + secString;
+                }
+
+                if (count < 10) {
+                    countString = "0" + countString;
+                }
+
+                document.getElementById('hr').innerHTML = hrString;
+                document.getElementById('min').innerHTML = minString;
+                document.getElementById('sec').innerHTML = secString;
+                document.getElementById('count').innerHTML = countString;
+                setTimeout(stopWatch, 10);
+            }
+        }
+    </script>
+
+
 </body>
+
 </html>
